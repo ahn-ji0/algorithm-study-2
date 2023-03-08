@@ -1,3 +1,5 @@
+# https://school.programmers.co.kr/learn/courses/15009/lessons/121687
+
 # 북 동 남 서
 direction = [[(0,1),(0,-1)], [(1,0),(-1,0)], [(0,-1), (0,1)], [(-1,0),(1,0)]]
 
