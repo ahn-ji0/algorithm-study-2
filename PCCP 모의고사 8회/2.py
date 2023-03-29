@@ -1,3 +1,6 @@
+# 최소비용 구하기 - https://www.acmicpc.net/problem/1916
+# 시간초과
+
 N = int(input())
 M = int(input())
 INF = 1000 * (N-1) + 1
