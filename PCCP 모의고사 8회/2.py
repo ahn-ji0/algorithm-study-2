@@ -9,7 +9,7 @@ input = sys.stdin.readline
 
 N = int(input())
 M = int(input())
-INF = int(1e9)
+INF = 100000 * (N-1) + 1
 
 def find_min(distance, visited):
     min_distance = INF
