@@ -1,9 +1,15 @@
 # 최소비용 구하기 - https://www.acmicpc.net/problem/1916
-# 시간초과
+# 시간초과 
+# 하지만 heapq로 풀어도 시간초과 -> 입력을 sys 사용했더니 해결.
+
+import heapq
+import sys
+
+input = sys.stdin.readline
 
 N = int(input())
 M = int(input())
-INF = 1000 * (N-1) + 1
+INF = int(1e9)
 
 def find_min(distance, visited):
     min_distance = INF
@@ -38,6 +44,28 @@ def dijkstra(N, start, end):
                 distance[neighbor_idx] = distance[min_idx] + cost
     
     # print(distance)
+    return distance[end]
+
+def dijkstra_heapq(N, start, end):
+    global graph
+    
+    distance = [INF for i in range(N)]
+    distance[start] = 0
+    
+    queue = []
+    heapq.heappush(queue,(distance[start], start))
+    
+    while queue:
+        tmp_distance, tmp_node = heapq.heappop(queue)
+        
+        if distance[tmp_node] < tmp_distance:
+            continue
+        
+        for neighbor_node, neighbor_cost in graph[tmp_node]:
+            if tmp_distance + neighbor_cost < distance[neighbor_node]:
+                distance[neighbor_node] = tmp_distance + neighbor_cost
+                heapq.heappush(queue, (tmp_distance + neighbor_cost, neighbor_node))
+        
     return distance[end]
 
 graph = [[] for i in range(N)]
