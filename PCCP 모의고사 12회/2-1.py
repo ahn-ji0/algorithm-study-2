@@ -1,3 +1,6 @@
+# 파티 - https://www.acmicpc.net/problem/1238
+# 다익스트라 성공
+
 import sys
 import heapq
 
